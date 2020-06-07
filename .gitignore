@@ -1,6 +1,9 @@
 # mac
 .DS_Store
 
+# token
+firebase-sdk.json
+
 # Logs
 logs
 *.log
