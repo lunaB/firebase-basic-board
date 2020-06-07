@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">게시글 목록</h1>
+                <p class="lead">Firebase Basic Board</p>
+            </div>
+        </div>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 10%">#</th>
+                    <th scope="col" style="width: 60%">title</th>
+                    <th scope="col" style="width: 10%">user</th>
+                    <th scope="col" style="width: 10%">reg</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < posts.length; i++) { %>
+                <tr>
+                    <th scope="row"><%= i+1 %></th>
+                    <td><a href='/post/<%= posts[i].b_id %>'><%= posts[i].title %></a></td>
+                    <td><%= posts[i].writer %></td>
+                    <td><%= posts[i].regdate %></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <a href='/write' class="btn btn-info float-right">글쓰기</a>
+
+    </div>
+
+</body>
+
+</html>
