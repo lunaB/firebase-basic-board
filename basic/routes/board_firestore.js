@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var firebase = require("firebase");
 var dateFormat = require('dateformat');
 
 // firestore을 이용하여 구현
@@ -21,7 +20,6 @@ router.get('/list', function(req, res, next) {
         snapshot.forEach((doc) => {
             data = doc.data()
             data.b_id = doc.id
-            console.log(data)
             data.regdate = dateFormat(data.regdate,"yyyy-mm-dd");
             posts.push(data)
         });
@@ -39,7 +37,6 @@ router.get('/post/:id', function(req, res, next) {
         var post = doc.data()
         post.b_id = doc.id
         post.regdate = dateFormat(post.regdate,"yyyy-mm-dd");
-        console.log(doc)
         res.render('post', {post: post});
     })
     .catch((err) => {

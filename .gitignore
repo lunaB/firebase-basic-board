@@ -3,6 +3,7 @@
 
 # token
 firebase-sdk.json
+firebase-config.json
 
 # Logs
 logs

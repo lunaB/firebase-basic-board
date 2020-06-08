@@ -3,13 +3,27 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var firebase = require("firebase");
-
-// https://stackoverflow.com/questions/37403747/firebase-permission-denied
-var admin = require("firebase-admin");
-var serviceAccount = require("./firebase/firebase-sdk.json");
 
 // Initialize Firebase
+var firebase = require('firebase');
+var firebaseConfig = require('./firebase/firebase-config.json')
+// json파일로 바꿔서 옮길때는 apiKey: -> "apiKey": 큰따옴표로 둘러줘야함.
+//var firebaseConfig = {
+//    apiKey: "00000",
+//    authDomain: "00000",
+//    databaseURL: "00000",
+//    projectId: "00000",
+//    storageBucket: "00000",
+//    messagingSenderId: "00000",
+//    appId: "00000",
+//    measurementId: "00000"
+//}
+firebase.initializeApp(firebaseConfig);
+
+// https://stackoverflow.com/questions/37403747/firebase-permission-denied
+// Initialize Firebase Admin
+var admin = require("firebase-admin");
+var serviceAccount = require("./firebase/firebase-sdk.json");
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://basic-board-a1bf6.firebaseio.com"
