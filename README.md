@@ -10,7 +10,7 @@
 </code>
 </pre>
 
-# function
+## function
 - [x] realtime database 기능 게시판
 - [x] firestore 기능 게시판
 - [x] firebase auth 회원인증
@@ -19,3 +19,5 @@
 - [ ] firebase 토큰인증
 - [ ] 구글 로그인
 
+## skill
+bootstrap4, firebase, nodejs, express
